@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Details</title>
+</head>
+
+<body>
+    <div id="customer-container"></div>
+
+    <script src="{% static 'scripts/get_single_customer.js' %}"></script>
+    <script>
+         // Start loading data after the DOM finishes loading its content.
+         document.addEventListener('DOMContentLoaded', function () {
+             loadCustomer({{ request.resolver_match.kwargs.pk }})
+        });
+    </script>
+</body>
+</html>
